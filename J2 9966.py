@@ -1,3 +1,5 @@
+# https://dmoj.ca/problem/ccc00j2
+
 m = int(input())
 n = int(input())
 
