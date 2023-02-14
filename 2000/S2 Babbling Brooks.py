@@ -1,3 +1,6 @@
+# https://dmoj.ca/problem/ccc00s2
+# Just use a list to represent the streams at any point
+
 n = int(input())
 streams = []
 
