@@ -1,4 +1,6 @@
 # https://dmoj.ca/problem/ccc00s4
+# Standard dynamic programming problem
+
 distance = int(input())
 
 club_strengths = []
