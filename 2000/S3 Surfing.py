@@ -1,3 +1,6 @@
+# https://dmoj.ca/problem/ccc00s3
+# The websites can be represented in a graph and then use a breadth-first search to check for connections
+
 n = int(input())
 
 weblinks = {}
