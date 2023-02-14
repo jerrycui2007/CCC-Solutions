@@ -1,4 +1,5 @@
 # https://dmoj.ca/problem/ccc00j1
+# Presentation Error on DMOJ, don't know why
 
 data = input().split(" ")
 
