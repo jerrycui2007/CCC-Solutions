@@ -1,3 +1,6 @@
+# https://dmoj.ca/problem/ccc00s1
+# Simulate Marth playing through the machines
+
 quarters = int(input())
 
 machine_1 = int(input())
