@@ -1,5 +1,7 @@
 # https://dmoj.ca/problem/ccc00s5
-# Exceeds time limit on test cases 5-6
+# Test every x-coordinate and find the nearest sheep
+# Exceeds time limit on test cases 5-6 on DMOJ
+
 from math import sqrt
 
 number_of_sheep = int(input())
