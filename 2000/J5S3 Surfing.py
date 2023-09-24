@@ -1,5 +1,5 @@
 # https://dmoj.ca/problem/ccc00s3
-# The websites can be represented in a graph and then use a breadth-first search to check for connections
+# The websites can be represented in a graph and then use a depth-first search to check for connections
 
 n = int(input())
 
@@ -40,17 +40,17 @@ while True:
         pairs.append((line, input()))
 
 
-def bfs(graph, target, visited):
+def depth_first_search(graph, target, visited):
     for neighbor in graph[target]:
         if neighbor not in visited:
             visited.add(neighbor)
-            bfs(graph, neighbor, visited)
+            depth_first_search(graph, neighbor, visited)
 
     return visited
 
 
 for pair in pairs:
-    connected = bfs(weblinks, pair[0], set())
+    connected = depth_first_search(weblinks, pair[0], set())
     if pair[1] in connected:
         print("Can surf from {0} to {1}.".format(pair[0], pair[1]))
     else:
