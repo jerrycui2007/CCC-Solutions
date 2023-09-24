@@ -1,6 +1,4 @@
 # https://dmoj.ca/problem/ccc00s1
-# Simulate Marth playing through the machines
-
 quarters = int(input())
 
 machine_1 = int(input())
@@ -10,6 +8,7 @@ machine_3 = int(input())
 current_machine = 1
 times_played = 0
 
+# Simulate playing through all the machines
 while quarters > 0:
     quarters -= 1
 
@@ -37,7 +36,6 @@ while quarters > 0:
         current_machine = 1
         times_played += 1
         continue
-
 
 
 print("Martha plays {0} times before going broke.".format(times_played))
