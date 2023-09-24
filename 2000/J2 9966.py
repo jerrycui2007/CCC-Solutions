@@ -1,9 +1,9 @@
 # https://dmoj.ca/problem/ccc00j2
+start = int(input())
+end = int(input())
 
-m = int(input())
-n = int(input())
 
-
+# Check if a number is same when flipped
 def flip_number(num):
     str_num = str(num)
     output = ""
@@ -29,7 +29,7 @@ def flip_number(num):
 
 
 total = 0
-for i in range(m, n + 1):
+for i in range(start, end + 1):
     if flip_number(i):
         total += 1
 
