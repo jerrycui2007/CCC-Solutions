@@ -1,8 +1,6 @@
 # https://dmoj.ca/problem/ccc01s3
-# Use a graph to store the roads, and then "reform" the graph so
-# all nodes point towards B and away from A. Then, take away each
-# road and see if A and B are still connected using a breadth-first
-# search
+# Use a graph to store the roads, and then take away each road in turn, and do a breadth-first search to see if they
+# are still connected
 map = {"A": [],
        "B": [],
        "C": [],
@@ -37,42 +35,12 @@ while True:
         break
     else:
         map[road[0]].append(road[1])
-        map[road[1]].append(road[0])  # all roads are two-way!
-
-
-# Make this graph directed, by pointing all edges towards B
-def reform_graph(point):
-    """ (dict, str) -> dict
-        Redirects a graph by making edges only point towards the start node, using a recursive function
-    """
-    points_to_reform = []
-
-    if point == "A":  # point A is the first point, so it cannot be reformed
-        pass
-    else:
-        for node in map:
-            if point in map[node]:  # for every point that each point in the map points to
-                points_to_reform.append(node)  # that point has to be reformed
-
-        for node in points_to_reform:
-            if node in map[point]:  # only need to reform a node if it is still linked to
-                if point == "B":
-                    map[point].remove(node)
-                    reform_graph(node)  # reform the node by recursively calling function
-                else:
-                    if "B" not in map[node]:  # if the point isn't B, then we have to make sure it doesn't link
-                        map[point].remove(node)  # to B
-                        reform_graph(node)
-
-
-reform_graph("B")
+        map[road[1]].append(road[0])  # all roads are two-way
 
 
 # Test every road to see, if removed, would cut off A to B
 def is_connected(graph, start, end):
-    """ (dict, str, str) -> bool
-        Checks if two points are connected, using a modified breadth first search
-    """
+    # Checks if the start and end point are connected
     visited = set()
     visited.add(start)
 
@@ -107,21 +75,3 @@ for disconnecting_road in disconnecting_roads:
     print(disconnecting_road[0] + disconnecting_road[1])
 print("There are {0} disconnecting roads.".format(len(disconnecting_roads)))
 
-"""
-AC
-AD
-AE
-CE
-CF
-ED
-GF
-BG
-HB
-GH
-**
-"""
-"""
-CF
-GF
-There are 2 disconnecting roads.
-"""

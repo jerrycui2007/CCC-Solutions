@@ -3,7 +3,7 @@
 # distance from the circumcenter to a point, I don't know how to tell which one 
 # is the answer, so since there are only five test cases, I used random.choice()
 # to pick between them, and then hope it is correct for all cases.
-# In most cases both of the two distances are the same anyways.
+# In most cases both of the two distances are the same anyway.
 from math import sqrt, inf
 from itertools import combinations
 from random import choice
