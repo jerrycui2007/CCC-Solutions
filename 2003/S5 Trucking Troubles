@@ -1,0 +1,45 @@
+# https://dmoj.ca/problem/ccc03s5
+number_of_cities, number_of_roads, number_of_destination_cities = list(map(int, input().split()))
+
+weights = [[0 for _ in range(number_of_cities + 1)] for _ in range(number_of_cities + 1)]
+destination_cities = []
+
+for _ in range(number_of_roads):
+    start_city, end_city, max_weight = list(map(int, input().split()))
+
+    if start_city > end_city:
+        start_city, end_city = end_city, start_city  # ensure start city is the earlier city
+
+    if max_weight > weights[start_city][end_city]:  # keep largest weight in case of duplicates
+        weights[start_city][end_city] = max_weight
+        weights[end_city][start_city] = max_weight
+
+for _ in range(number_of_destination_cities):
+    destination_cities.append(int(input()))
+    
+values = [0 for _ in range(number_of_cities + 1)]  # value at index i is the maximum weight on the way to city i
+visited = [False for _ in range(number_of_cities + 1)]
+
+values[1] = 100001
+next = 1
+
+while next != -1:
+    current_city = next
+    visited[next] = True
+
+    max = 0
+    next = -1
+
+    for i in range(1, number_of_cities + 1):
+        if values[i] < min(values[current_city], weights[current_city][i]):
+            values[i] = min(values[current_city], weights[current_city][i])
+        if values[i] >= max and not visited[i]:
+            max = values[i]
+            next = i
+
+smallest_bridge = 100001
+for destination_city in destination_cities:
+    if values[destination_city] < smallest_bridge:
+        smallest_bridge = values[destination_city]
+
+print(smallest_bridge)
