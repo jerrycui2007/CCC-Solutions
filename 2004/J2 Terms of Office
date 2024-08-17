@@ -1,0 +1,7 @@
+# https://dmoj.ca/problem/ccc04j2
+start_year = int(input())
+end_year = int(input())
+
+for year in range(start_year, end_year + 1):
+    if (year - start_year) % 60 == 0:
+        print("All positions change in year {0}".format(year))
