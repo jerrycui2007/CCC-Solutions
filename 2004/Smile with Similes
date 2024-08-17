@@ -1,0 +1,16 @@
+# https://dmoj.ca/problem/ccc04j3
+n = int(input())
+m = int(input())
+
+adjectives = []
+nouns = []
+
+for _ in range(n):
+    adjectives.append(input())
+
+for _ in range(m):
+    nouns.append(input())
+
+for adjective in adjectives:
+    for noun in nouns:
+        print(adjective + " as " + noun)
