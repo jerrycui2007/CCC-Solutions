@@ -1,0 +1,20 @@
+# https://dmoj.ca/problem/ccc04j4
+keyword = input()
+
+n = len(keyword)
+keyword_counter = 1
+
+input_string = input()
+output_string = ""
+
+for char in input_string:
+    if char.isalpha():
+        ascii_value = ord(char) + ord(keyword[keyword_counter - 1]) - 65
+        if ascii_value > 90:
+            ascii_value = 64 + (ascii_value - 90)
+        output_string += chr(ascii_value)
+        keyword_counter += 1
+        if keyword_counter == n + 1:
+            keyword_counter = 1
+
+print(output_string)
